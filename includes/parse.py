@@ -107,6 +107,7 @@ for title in range(1, titles + 1):
                     section_number = section_filename.partition('.xm')[0]
                     try:
                         section_name = re.search(r'class="headnote">(.*?)</', section_xml).group(1)
+			section_name = re.sub(r'<xhtml\:span class="iowaCodeRef">', '', section_name, 0)
                         section_name = section_name.lower().title()
                         # If we've gotten here, that means the chapter exists and the
                         # section isn't repealed nor reserved, so it's name and content exist.
